@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip to Japan - @runakopictures' vintage gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="japan.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Flickr Justified Gallery CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container header-row">
+            <a href="index.html" class="logo-link" aria-label="Home">
+                <img src="/logo/runakopictures.png" 
+                     alt="Runako Pictures Logo" 
+                     loading="eager"
+                     onerror="this.onerror=null;this.src='/logo/fallback-logo.png'"
+                     class="site-logo logo"
+                     style="max-width: 100%; height: auto;">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="japantravel.html" class="nav-link active" aria-current="page">JAPAN TRIP</a></li>
+                <li><a href="kotalama.html" class="nav-link">KOTA LAMA</a></li>
+                <li><a href="schoollife.html" class="nav-link">SCHOOL LIFE</a></li>
+                <li><a href="studiocology-gallery.html" class="nav-link">STUDIOCOLOGY</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+        <div class="container">
+            <div class="gallery-header">
+                <div class="vintage-ornament-large"></div>
+                <h1 class="gallery-title">Trip to Japan</h1>
+                <div class="vintage-divider-large"></div>
+                <p class="gallery-subtitle">An intimate exploration of Japan's ephemeral beauty, where light and shadow dance together to create moments of pure artistic expression.</p>
+            </div>
+
+            <!-- Photographer's Note Section -->
+            <div class="photographers-note">
+                <div class="note-container">
+                    <div class="note-header">
+                        <div class="note-ornament"></div>
+                        <h2 class="note-title">Photographer's Note</h2>
+                        <div class="note-divider"></div>
+                    </div>
+                    <div class="note-content">
+                        <p class="note-text">Japan was beautiful, I've visited Osaka, Kyoto and Tokyo for around 8 days! I wish I could just go back again to spend more money in there!</p>
+                        <div class="note-signature">~ Reynard Runako</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-loading" id="gallery-loading">
+                Loading gallery...
+            </div>
+            
+            <div class="fj-gallery" id="japan-gallery">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</button>
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" src="" alt="">
+                <div class="lightbox-title" id="lightbox-title"></div>
+            </div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Runako Pictures</h3>
+                    <p>Fine Art Photography Since 2023</p>
+                    <div class="vintage-ornament-small"></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="vintage-divider-footer"></div>
+                <p>&copy; 2024 Runako Pictures. All rights reserved. Preserving artistic heritage since 2023.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flickr Justified Gallery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Japan Trip Gallery Data
+        const japanGalleryImages = [
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC05954.JPG',
+                width: 1200,
+                height: 800,
+                title: 'Namba Streets',
+                description: 'The breathtaking urban landscape of Tokyo, where modern architecture reaches toward the sky in perfect harmony.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC05993.JPG',
+                width: 800,
+                height: 1200,
+                title: 'Den Den Town Nipponbashi',
+                description: 'Capturing the authentic rhythm of daily life in Japan\'s bustling streets, where every moment tells a story.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06013.JPG',
+                width: 1000,
+                height: 800,
+                title: 'Osaka Top Tier Crab',
+                description: 'Ancient wooden structures that have withstood centuries, embodying the timeless beauty of Japanese craftsmanship.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06015.JPG',
+                width: 800,
+                height: 1000,
+                title: 'Michellin Takoyaki!',
+                description: 'A glimpse into Japan\'s rich cultural tapestry, where every detail speaks of deep-rooted traditions.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06020.JPG',
+                width: 1200,
+                height: 900,
+                title: 'Dekkai Takoyaki',
+                description: 'Finding moments of peace and tranquility amidst the vibrant energy of Japan\'s metropolitan areas.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06025.JPG',
+                width: 900,
+                height: 1200,
+                title: 'Kushikatsu Signs',
+                description: 'Sacred spaces where nature and spirituality converge, creating an atmosphere of profound contemplation.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06064.JPG',
+                width: 1100,
+                height: 800,
+                title: 'Wonder Cruise Dotonbori',
+                description: 'The ephemeral beauty of sakura, capturing Japan\'s most celebrated natural phenomenon in full bloom.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06066.JPG',
+                width: 800,
+                height: 1100,
+                title: 'Dotonbori',
+                description: 'Ancient stone paths that have guided countless footsteps through centuries of Japanese history.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06075.JPG',
+                width: 1000,
+                height: 800,
+                title: 'Osaka Shinsaibashi Suji',
+                description: 'The majestic Japanese landscape, where mountains stand as silent guardians over the land below.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06100.JPG',
+                width: 800,
+                height: 1000,
+                title: 'The View of A Beautiful Castle',
+                description: 'The vibrant energy of Japanese festivals, where tradition comes alive through celebration and community.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06109.JPG',
+                width: 1200,
+                height: 800,
+                title: 'Bamboo Forest',
+                description: 'Walking through nature\'s cathedral, where towering bamboo creates a mystical canopy of green light.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06115.JPG',
+                width: 900,
+                height: 1200,
+                title: 'Osaka Castle',
+                description: 'The meticulous artistry of Japanese craftspeople, where every creation reflects generations of skill and dedication.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06153.JPG',
+                width: 1100,
+                height: 900,
+                title: 'Up to Umeda Sky Building',
+                description: 'Perfectly arranged stones and sand create landscapes of meditation, embodying the essence of Japanese aesthetics.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06215.JPG',
+                width: 800,
+                height: 1200,
+                title: 'Spiderman Crossing!',
+                description: 'The organized chaos of Tokyo\'s most famous intersection, where thousands move in perfect urban choreography.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06218.JPG',
+                width: 1000,
+                height: 800,
+                title: 'The Glico Man Sign',
+                description: 'Tokyo after dark, where neon lights paint the city in brilliant colors and endless possibilities.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06303.JPG',
+                width: 800,
+                height: 1000,
+                title: 'Kiyomizu Dera',
+                description: 'Sacred ceremonies that connect the present with ancient spiritual traditions, captured in moments of reverence.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06710.JPG',
+                width: 1200,
+                height: 900,
+                title: 'Streets of Shinjuku',
+                description: 'Japan\'s most iconic symbol, standing majestically against the sky as a testament to natural beauty and cultural significance.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06740.JPG',
+                width: 900,
+                height: 1200,
+                title: 'Nights in Tokyo',
+                description: 'The elegant beauty of kimono and traditional Japanese attire, where every fold tells a story of cultural heritage.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06762.JPG',
+                width: 1100,
+                height: 800,
+                title: 'Asakusa Big Lantern',
+                description: 'The meditative art of tea preparation, where every movement embodies centuries of refined Japanese culture.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06769.JPG',
+                width: 800,
+                height: 1100,
+                title: 'Nakamise Shopping Street',
+                description: 'The spectacular transformation of Japanese landscapes during koyo season, painted in brilliant reds and golds.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06778.JPG',
+                width: 1000,
+                height: 800,
+                title: 'Tokyo Night Scene',
+                description: 'The vibrant nightlife of Tokyo captured in all its neon-lit glory and urban energy.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06791.JPG',
+                width: 1000,
+                height: 800,
+                title: 'Inside Sensoji Temple',
+                description: 'Quiet contemplation in Japan\'s serene spaces, where time seems to slow and the soul finds rest.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06792-2.JPG',
+                width: 800,
+                height: 1000,
+                title: 'Beautiful Pagoda',
+                description: 'The magical light of sunset casting a warm glow over Japan\'s timeless landscapes and architecture.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06812.JPG',
+                width: 1200,
+                height: 800,
+                title: 'Cultural Bridge',
+                description: 'Where ancient traditions meet modern life, creating the unique tapestry that defines contemporary Japan.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06822.JPG',
+                width: 900,
+                height: 1200,
+                title: 'Tokyo Skytree',
+                description: 'Sacred spaces that invite reflection and spiritual connection, embodying the profound depth of Japanese spirituality.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/DSC06886.JPG',
+                width: 1100,
+                height: 900,
+                title: 'One Asakusa\'s Night',
+                description: 'The final moments of an unforgettable journey through Japan, carrying memories that will last a lifetime.'
+            },
+            {
+                src: '/pics/japan%20trip/japan%20trip%20watermark/fujisan.JPG',
+                width: 1200,
+                height: 800,
+                title: 'Mount Fuji Majesty',
+                description: 'The iconic Mount Fuji standing majestically against the sky, a symbol of Japan\'s natural beauty and spiritual significance.'
+            }
+        ];
+
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const image = japanGalleryImages[index];
+            
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.title;
+            lightboxTitle.textContent = image.title;
+            lightboxCounter.textContent = `${index + 1} / ${japanGalleryImages.length}`;
+            
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + japanGalleryImages.length) % japanGalleryImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % japanGalleryImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Initialize gallery when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryContainer = document.getElementById('japan-gallery');
+            const loadingElement = document.getElementById('gallery-loading');
+            
+            // Create gallery items
+            japanGalleryImages.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'fj-gallery-item';
+                galleryItem.style.cursor = 'pointer';
+                
+                galleryItem.innerHTML = `
+                    <img src="${image.src}" alt="${image.title}" width="${image.width}" height="${image.height}">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">${image.title}</div>
+                    </div>
+                `;
+                
+                // Add click event to open lightbox
+                galleryItem.addEventListener('click', () => openLightbox(index));
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+            
+            // Hide loading and show gallery
+            loadingElement.style.display = 'none';
+            galleryContainer.classList.add('loaded');
+            
+            // Initialize Flickr Justified Gallery
+            fjGallery(document.querySelectorAll('.fj-gallery'), {
+                itemSelector: '.fj-gallery-item',
+                gutter: 15,
+                rowHeight: 280,
+                rowHeightTolerance: 0.25,
+                maxRowsCount: Number.POSITIVE_INFINITY,
+                lastRow: 'left',
+                transitionDuration: '0.3s',
+                calculateItemsHeight: false,
+                resizeDebounce: 100
+            });
+        });
+
+        // Lightbox event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close lightbox events
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxModal.addEventListener('click', (e) => {
+                if (e.target === lightboxModal || e.target.classList.contains('lightbox-overlay')) {
+                    closeLightbox();
+                }
+            });
+
+            // Navigation events
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightboxModal.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        showPrevImage();
+                        break;
+                    case 'ArrowRight':
+                        showNextImage();
+                        break;
+                }
+            });
+
+            // Touch/swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            lightboxModal.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            lightboxModal.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        showNextImage(); // Swipe left = next image
+                    } else {
+                        showPrevImage(); // Swipe right = previous image
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Life - @runakopictures' vintage gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="school.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Flickr Justified Gallery CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container header-row">
+            <a href="index.html" class="logo-link" aria-label="Home">
+                <img src="/logo/runakopictures.png" 
+                     alt="Runako Pictures Logo" 
+                     loading="eager"
+                     onerror="this.onerror=null;this.src='/logo/fallback-logo.png'"
+                     class="site-logo logo"
+                     style="max-width: 100%; height: auto;">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">HOME</a></li>
+                <li><a href="japantravel.html" class="nav-link">JAPAN TRIP</a></li>
+                <li><a href="kotalama.html" class="nav-link">KOTA LAMA</a></li>
+                <li><a href="schoollife.html" class="nav-link active" aria-current="page">SCHOOL LIFE</a></li>
+                <li><a href="studiocology-gallery.html" class="nav-link">STUDIOCOLOGY</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Section -->
+    <section class="gallery-container">
+        <div class="container">
+            <div class="gallery-header">
+                <div class="vintage-ornament-large"></div>
+                <h1 class="gallery-title">School Life</h1>
+                <div class="vintage-divider-large"></div>
+                <p class="gallery-subtitle">Fascinating pictures that capture the story of a high school life, revealing stories of joy, contemplation, and the irreplaceable moment of someone's life.</p>
+            </div>
+
+            <!-- Photographer's Note Section -->
+            <div class="photographers-note">
+                <div class="note-container">
+                    <div class="note-header">
+                        <div class="note-ornament"></div>
+                        <h2 class="note-title">Photographer's Note</h2>
+                        <div class="note-divider"></div>
+                    </div>
+                    <div class="note-content">
+                        <p class="note-text">High school life holds countless precious memories that deserve to be preserved forever. These photographs capture the essence of friendship, laughter, and the beautiful chaos of teenage years - moments that define who we become and friendships that last a lifetime.</p>
+                        <div class="note-signature">~ Reynard Runako</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-loading" id="gallery-loading">
+                Loading gallery...
+            </div>
+            
+            <div class="fj-gallery" id="schoollife-gallery">
+                <!-- Gallery items will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</button>
+            <div class="lightbox-image-container">
+                <img id="lightbox-image" src="" alt="">
+                <div class="lightbox-title" id="lightbox-title"></div>
+            </div>
+            <div class="lightbox-counter" id="lightbox-counter"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Runako Pictures</h3>
+                    <p>Fine Art Photography Since 2023</p>
+                    <div class="vintage-ornament-small"></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="vintage-divider-footer"></div>
+                <p>&copy; 2024 Runako Pictures. All rights reserved. Preserving artistic heritage since 2023.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Flickr Justified Gallery JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // School Life Gallery Data
+        const schoollifeGalleryImages = [
+            {
+                src: '/pics/school%20life/20250214-DSC05120.JPG',
+                width: 1200,
+                height: 800,
+                title: 'School Memories',
+                description: 'Capturing the essence of high school life and the memories that will last forever.'
+            },
+            {
+                src: '/pics/school%20life/AMBATUNAT.png',
+                width: 800,
+                height: 1200,
+                title: 'Friendship Moments',
+                description: 'The joy and laughter shared between friends during school days.'
+            },
+            {
+                src: '/pics/school%20life/best%20buddy%20raph.JPG',
+                width: 1000,
+                height: 800,
+                title: 'Best Buddy Raph',
+                description: 'A special moment with a best friend, showcasing the bonds formed during school years.'
+            },
+            {
+                src: '/pics/school%20life/Bryan%20Suka%20Lanang%20ini.jpg',
+                width: 800,
+                height: 1000,
+                title: 'School Friends',
+                description: 'The candid moments that define teenage friendships and school life experiences.'
+            },
+            {
+                src: '/pics/school%20life/DSC03781.JPG',
+                width: 1200,
+                height: 900,
+                title: 'School Days',
+                description: 'Documenting the everyday moments that make high school life so memorable.'
+            },
+            {
+                src: '/pics/school%20life/DSC03824.JPG',
+                width: 1000,
+                height: 800,
+                title: 'School Moments',
+                description: 'Capturing authentic moments and experiences from daily school life.'
+            },
+            {
+                src: '/pics/school%20life/DSC03864.JPG',
+                width: 900,
+                height: 1200,
+                title: 'Student Life',
+                description: 'The authentic portrayal of student life and the experiences that shape us.'
+            },
+            {
+                src: '/pics/school%20life/DSC05761.JPG',
+                width: 800,
+                height: 1100,
+                title: 'School Adventures',
+                description: 'The adventures and discoveries that happen within the school environment.'
+            },
+            {
+                src: '/pics/school%20life/Edited%20DSC%20BBeuhhhhh.JPG',
+                width: 1000,
+                height: 800,
+                title: 'Creative Moments',
+                description: 'Creative and artistic expressions captured during school photography sessions.'
+            },
+            {
+                src: '/pics/school%20life/kevingoat.JPG',
+                width: 1200,
+                height: 800,
+                title: 'Kevin Goat',
+                description: 'Capturing the unique personality and memorable moments of school life.'
+            },
+            {
+                src: '/pics/school%20life/nice%20try.jpg',
+                width: 800,
+                height: 1000,
+                title: 'School Achievements',
+                description: 'Celebrating the small victories and achievements that make school life meaningful.'
+            },
+            {
+                src: '/pics/school%20life/waifu.JPG',
+                width: 800,
+                height: 1200,
+                title: 'School Portrait',
+                description: 'Beautiful portrait capturing the essence of youth and school life memories.'
+            }
+        ];
+
+        // Lightbox functionality
+        let currentImageIndex = 0;
+        const lightboxModal = document.getElementById('lightbox-modal');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            const image = schoollifeGalleryImages[index];
+            
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.title;
+            lightboxTitle.textContent = image.title;
+            lightboxCounter.textContent = `${index + 1} / ${schoollifeGalleryImages.length}`;
+            
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function showPrevImage() {
+            currentImageIndex = (currentImageIndex - 1 + schoollifeGalleryImages.length) % schoollifeGalleryImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        function showNextImage() {
+            currentImageIndex = (currentImageIndex + 1) % schoollifeGalleryImages.length;
+            openLightbox(currentImageIndex);
+        }
+
+        // Initialize gallery when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const galleryContainer = document.getElementById('schoollife-gallery');
+            const loadingElement = document.getElementById('gallery-loading');
+            
+            // Create gallery items
+            schoollifeGalleryImages.forEach((image, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'fj-gallery-item';
+                galleryItem.style.cursor = 'pointer';
+                
+                galleryItem.innerHTML = `
+                    <img src="${image.src}" alt="${image.title}" width="${image.width}" height="${image.height}">
+                    <div class="gallery-item-overlay">
+                        <div class="gallery-item-title">${image.title}</div>
+                    </div>
+                `;
+                
+                // Add click event to open lightbox
+                galleryItem.addEventListener('click', () => openLightbox(index));
+                
+                galleryContainer.appendChild(galleryItem);
+            });
+            
+            // Hide loading and show gallery
+            loadingElement.style.display = 'none';
+            galleryContainer.classList.add('loaded');
+            
+            // Initialize Flickr Justified Gallery
+            fjGallery(document.querySelectorAll('.fj-gallery'), {
+                itemSelector: '.fj-gallery-item',
+                gutter: 15,
+                rowHeight: 280,
+                rowHeightTolerance: 0.25,
+                maxRowsCount: Number.POSITIVE_INFINITY,
+                lastRow: 'left',
+                transitionDuration: '0.3s',
+                calculateItemsHeight: false,
+                resizeDebounce: 100
+            });
+        });
+
+        // Lightbox event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close lightbox events
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxModal.addEventListener('click', (e) => {
+                if (e.target === lightboxModal || e.target.classList.contains('lightbox-overlay')) {
+                    closeLightbox();
+                }
+            });
+
+            // Navigation events
+            lightboxPrev.addEventListener('click', showPrevImage);
+            lightboxNext.addEventListener('click', showNextImage);
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (!lightboxModal.classList.contains('active')) return;
+                
+                switch(e.key) {
+                    case 'Escape':
+                        closeLightbox();
+                        break;
+                    case 'ArrowLeft':
+                        showPrevImage();
+                        break;
+                    case 'ArrowRight':
+                        showNextImage();
+                        break;
+                }
+            });
+
+            // Touch/swipe support for mobile
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            lightboxModal.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            });
+
+            lightboxModal.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = touchStartX - touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        showNextImage(); // Swipe left = next image
+                    } else {
+                        showPrevImage(); // Swipe right = previous image
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
