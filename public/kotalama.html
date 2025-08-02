@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kota Lama - @runakopictures' vintage gallery</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="kotalama.css">
+    <link rel="icon" type="image/png" href="/pics/logo/runakopictures.png">
+    <link rel="shortcut icon" type="image/png" href="/pics/logo/runakopictures.png">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/kotalama.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -16,20 +18,20 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container header-row">
-            <a href="index.html" class="logo-link" aria-label="Home">
-                <img src="/logo/runakopictures.png" 
+            <a href="/" class="logo-link" aria-label="Home">
+                <img src="/pics/logo/runakopictures.png" 
                      alt="Runako Pictures Logo" 
                      loading="eager"
-                     onerror="this.onerror=null;this.src='/logo/fallback-logo.png'"
+                     onerror="this.onerror=null;this.src='/pics/logo/fallback-logo.png'"
                      class="site-logo logo"
                      style="max-width: 100%; height: auto;">
             </a>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">HOME</a></li>
-                <li><a href="japantravel.html" class="nav-link">JAPAN TRIP</a></li>
-                <li><a href="kotalama.html" class="nav-link active" aria-current="page">KOTA LAMA</a></li>
-                <li><a href="schoollife.html" class="nav-link">SCHOOL LIFE</a></li>
-                <li><a href="studiocology-gallery.html" class="nav-link">STUDIOCOLOGY</a></li>
+                <li><a href="/" class="nav-link">HOME</a></li>
+                <li><a href="/japantravel" class="nav-link">JAPAN TRIP</a></li>
+                <li><a href="/kotalama" class="nav-link active" aria-current="page">KOTA LAMA</a></li>
+                <li><a href="/schoollife" class="nav-link">SCHOOL LIFE</a></li>
+                <li><a href="/studiocology-gallery" class="nav-link">STUDIOCOLOGY</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -91,12 +93,21 @@
 
     <!-- Footer -->
     <footer class="footer">
+        <div class="footer-decorative-elements"></div>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Runako Pictures</h3>
                     <p>Fine Art Photography Since 2023</p>
                     <div class="vintage-ornament-small"></div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/runakopictures/" target="_blank" rel="noopener noreferrer" class="instagram-link vintage-style" aria-label="Follow us on Instagram">
+                            <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.3-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-3.3 1.7-4.8 4.9-4.9 1.2-.1 1.5-.1 4.8-.1zm0-2.2C8.7 0 8.3 0 7 .1 2.6.3.3 2.6.1 7 0 8.3 0 8.7 0 12s0 3.7.1 5c.2 4.4 2.5 6.7 6.9 6.9 1.3.1 1.7.1 5 .1s3.7 0 5-.1c4.4-.2 6.7-2.5 6.9-6.9.1-1.3.1-1.7.1-5s0-3.7-.1-5C21.7 2.6 19.4.3 15 .1 13.7 0 13.3 0 12 0zm0 5.8c-3.4 0-6.2 2.8-6.2 6.2s2.8 6.2 6.2 6.2 6.2-2.8 6.2-6.2-2.8-6.2-6.2-6.2zm0 10.2c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm6.4-11.8c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4z"/>
+                            </svg>
+                            <span class="social-text">Follow @runakopictures</span>
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -108,257 +119,261 @@
 
     <!-- Flickr Justified Gallery JS -->
     <script src="https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2.1/dist/fjGallery.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Advanced Gallery Features -->
+    <script src="/image-utils.js"></script>
+    <script src="/advanced-gallery.js"></script>
+    <script src="/script.js"></script>
+    <script src="/vercel-image-fix.js"></script>
     <script>
         // Kota Lama Gallery Data
         const kotalamaGalleryImages = [  
           {
-                src: '/pics/kota lama/kotlam/01.jpg',
+                src: '/pics/kota%20lama/kotlam/01.jpg',
                 width: 1200,
                 height: 800,
-                title: 'Colonial Architecture',
+                title: 'Morning Streets',
                 description: 'The majestic Dutch colonial buildings that define the character of Kota Lama Semarang.'
             },
             {
-                src: '/pics/kota lama/kotlam/02.jpg',
+                src: '/pics/kota%20lama/kotlam/02.jpg',
                 width: 800,
                 height: 1200,
-                title: 'Historic Streetscape',
+                title: 'Hotel Kotta!',
                 description: 'Walking through the cobblestone streets where history comes alive in every step.'
             },
             {
-                src: '/pics/kota lama/kotlam/03.jpg',
+                src: '/pics/kota%20lama/kotlam/03.jpg',
                 width: 1000,
                 height: 800,
                 title: 'Heritage Building',
                 description: 'Preserved colonial structures that showcase the architectural grandeur of the past.'
             },
             {
-                src: '/pics/kota lama/kotlam/04.jpg',
+                src: '/pics/kota%20lama/kotlam/04.jpg',
                 width: 800,
                 height: 1000,
                 title: 'Old Town Charm',
                 description: 'The timeless beauty of Semarang\'s historic district captured in golden light.'
             },
             {
-                src: '/pics/kota lama/kotlam/05.jpg',
+                src: '/pics/kota%20lama/kotlam/05.jpg',
                 width: 1200,
                 height: 900,
-                title: 'Colonial Legacy',
+                title: 'Streets of Beauty',
                 description: 'Architectural remnants that tell the story of Semarang\'s colonial past.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-2.jpg',
+                src: '/pics/kota%20lama/kotlam/05-2.jpg',
                 width: 900,
                 height: 1200,
                 title: 'Historic Facade',
                 description: 'Weathered walls that have witnessed centuries of change and transformation.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-3.jpg',
+                src: '/pics/kota%20lama/kotlam/05-3.jpg',
                 width: 1100,
                 height: 800,
                 title: 'Heritage Corner',
                 description: 'Every corner of Kota Lama holds secrets and stories from a bygone era.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-4.jpg',
+                src: '/pics/kota%20lama/kotlam/05-4.jpg',
                 width: 800,
                 height: 1100,
                 title: 'Colonial Details',
                 description: 'Intricate architectural details that showcase Dutch craftsmanship in the tropics.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-5.jpg',
+                src: '/pics/kota%20lama/kotlam/05-5.jpg',
                 width: 1000,
                 height: 800,
                 title: 'Old Semarang',
                 description: 'The heart of old Semarang where past and present coexist in harmony.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-6.jpg',
+                src: '/pics/kota%20lama/kotlam/05-6.jpg',
                 width: 800,
                 height: 1000,
                 title: 'Historic Quarter',
                 description: 'Exploring the historic quarter where every building has a story to tell.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-7.jpg',
+                src: '/pics/kota%20lama/kotlam/05-7.jpg',
                 width: 1200,
                 height: 800,
                 title: 'Colonial Street',
                 description: 'Streets lined with colonial buildings that transport you back in time.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-8.jpg',
+                src: '/pics/kota%20lama/kotlam/05-8.jpg',
                 width: 900,
                 height: 1200,
                 title: 'Heritage Preservation',
                 description: 'Beautifully preserved buildings that maintain their historical significance.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-9.jpg',
+                src: '/pics/kota%20lama/kotlam/05-9.jpg',
                 width: 1100,
                 height: 900,
                 title: 'Old Town Square',
                 description: 'The central square where colonial architecture meets Indonesian culture.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-10.jpg',
+                src: '/pics/kota%20lama/kotlam/05-10.jpg',
                 width: 800,
                 height: 1200,
                 title: 'Historic Landmark',
                 description: 'Iconic landmarks that define the skyline of Kota Lama Semarang.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-11.jpg',
+                src: '/pics/kota%20lama/kotlam/05-11.jpg',
                 width: 1000,
                 height: 800,
                 title: 'Colonial Window',
                 description: 'Windows that have watched over Semarang for more than a century.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-12.jpg',
+                src: '/pics/kota%20lama/kotlam/05-12.jpg',
                 width: 800,
                 height: 1000,
                 title: 'Heritage Walk',
                 description: 'A leisurely walk through the heritage district reveals hidden architectural gems.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-13.jpg',
+                src: '/pics/kota%20lama/kotlam/05-13.jpg',
                 width: 1200,
                 height: 800,
                 title: 'Old Dutch Building',
                 description: 'Dutch colonial buildings that stand as monuments to Semarang\'s rich history.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-14.jpg',
+                src: '/pics/kota%20lama/kotlam/05-14.jpg',
                 width: 900,
                 height: 1200,
                 title: 'Historic Alley',
                 description: 'Narrow alleys that lead to discoveries of forgotten architectural treasures.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-15.jpg',
+                src: '/pics/kota%20lama/kotlam/05-15.jpg',
                 width: 1100,
                 height: 800,
                 title: 'Colonial Courtyard',
                 description: 'Peaceful courtyards where colonial elegance meets tropical serenity.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-16.jpg',
+                src: '/pics/kota%20lama/kotlam/05-16.jpg',
                 width: 800,
                 height: 1100,
                 title: 'Heritage District',
                 description: 'The heart of Semarang\'s heritage district with its distinctive colonial character.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-17.jpg',
+                src: '/pics/kota%20lama/kotlam/05-17.jpg',
                 width: 1000,
                 height: 800,
                 title: 'Old Town Vista',
                 description: 'Panoramic views of the old town that capture its timeless beauty.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-18.jpg',
+                src: '/pics/kota%20lama/kotlam/05-18.jpg',
                 width: 800,
                 height: 1000,
                 title: 'Colonial Balcony',
                 description: 'Ornate balconies that showcase the decorative arts of the colonial period.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-19.jpg',
+                src: '/pics/kota%20lama/kotlam/05-19.jpg',
                 width: 1200,
                 height: 900,
                 title: 'Historic Intersection',
                 description: 'Where old streets meet, creating a crossroads of history and culture.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-20.jpg',
+                src: '/pics/kota%20lama/kotlam/05-20.jpg',
                 width: 900,
                 height: 1200,
                 title: 'Heritage Building',
                 description: 'Majestic heritage buildings that define the architectural landscape of Kota Lama.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-21.jpg',
+                src: '/pics/kota%20lama/kotlam/05-21.jpg',
                 width: 1100,
                 height: 800,
                 title: 'Colonial Elegance',
                 description: 'The refined elegance of Dutch colonial architecture in tropical Indonesia.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-22.jpg',
+                src: '/pics/kota%20lama/kotlam/05-22.jpg',
                 width: 800,
                 height: 1100,
                 title: 'Old Semarang Street',
                 description: 'Streets that have remained unchanged, preserving the essence of old Semarang.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-23.jpg',
+                src: '/pics/kota%20lama/kotlam/05-23.jpg',
                 width: 1000,
                 height: 800,
                 title: 'Historic Facade',
                 description: 'Building facades that tell stories of merchants, traders, and colonial life.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-24.jpg',
+                src: '/pics/kota%20lama/kotlam/05-24.jpg',
                 width: 800,
                 height: 1000,
                 title: 'Colonial Heritage',
                 description: 'Living heritage that continues to inspire and educate future generations.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-25.jpg',
+                src: '/pics/kota%20lama/kotlam/05-25.jpg',
                 width: 1200,
                 height: 800,
                 title: 'Old Town Character',
                 description: 'The unique character of Kota Lama that blends Dutch and Indonesian influences.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-26.jpg',
+                src: '/pics/kota%20lama/kotlam/05-26.jpg',
                 width: 900,
                 height: 1200,
                 title: 'Heritage Corner',
                 description: 'Every corner reveals new perspectives on Semarang\'s colonial heritage.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-27.jpg',
+                src: '/pics/kota%20lama/kotlam/05-27.jpg',
                 width: 1100,
                 height: 900,
                 title: 'Colonial Architecture',
                 description: 'Architectural masterpieces that showcase the grandeur of the colonial era.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-28.jpg',
+                src: '/pics/kota%20lama/kotlam/05-28.jpg',
                 width: 800,
                 height: 1200,
                 title: 'Historic District',
                 description: 'The historic district where every building is a piece of living history.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-29.jpg',
+                src: '/pics/kota%20lama/kotlam/05-29.jpg',
                 width: 1000,
                 height: 800,
                 title: 'Old Town Memory',
                 description: 'Memories of the past preserved in stone and mortar for future generations.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-30.jpg',
+                src: '/pics/kota%20lama/kotlam/05-30.jpg',
                 width: 800,
                 height: 1000,
                 title: 'Colonial Legacy',
                 description: 'The enduring legacy of colonial architecture in modern-day Semarang.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-31.jpg',
+                src: '/pics/kota%20lama/kotlam/05-31.jpg',
                 width: 1200,
                 height: 800,
                 title: 'Heritage Preservation',
                 description: 'Efforts to preserve and maintain the architectural heritage of Kota Lama.'
             },
             {
-                src: '/pics/kota lama/kotlam/05-32.jpg',
+                src: '/pics/kota%20lama/kotlam/05-32.jpg',
                 width: 900,
                 height: 1200,
                 title: 'Timeless Beauty',
@@ -404,39 +419,62 @@
             openLightbox(currentImageIndex);
         }
 
-        // Initialize gallery when page loads
+        // ✅ FAST GALLERY INITIALIZATION - Optimized for speed
         document.addEventListener('DOMContentLoaded', function() {
             const galleryContainer = document.getElementById('kotalama-gallery');
             const loadingElement = document.getElementById('gallery-loading');
+            const isMobile = window.innerWidth <= 768;
             
-            // Create gallery items
+            // ✅ INSTANT GALLERY LOADING - No delays
             kotalamaGalleryImages.forEach((image, index) => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'fj-gallery-item';
                 galleryItem.style.cursor = 'pointer';
                 
-                galleryItem.innerHTML = `
-                    <img src="${image.src}" alt="${image.title}" width="${image.width}" height="${image.height}">
-                    <div class="gallery-item-overlay">
-                        <div class="gallery-item-title">${image.title}</div>
-                    </div>
-                `;
+                // ✅ OPTIMIZED IMAGE CREATION - Fast loading
+                const img = document.createElement('img');
+                img.alt = image.title;
+                img.width = image.width;
+                img.height = image.height;
+                img.loading = index < 8 ? 'eager' : 'lazy'; // Load first 8 immediately
+                img.decoding = 'async';
+                img.src = image.src;
+                img.sizes = isMobile ? '100vw' : '(max-width: 1200px) 50vw, 33vw';
                 
-                // Add click event to open lightbox
+                // ✅ MINIMAL LOADING HANDLERS - Fast response
+                img.addEventListener('load', function() {
+                    this.classList.add('loaded');
+                    galleryItem.classList.add('loaded');
+                });
+                
+                img.addEventListener('error', function() {
+                    this.classList.add('error');
+                });
+                
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'gallery-item-overlay';
+                overlay.innerHTML = `<div class="gallery-item-title">${image.title}</div>`;
+                
+                // ✅ FAST CLICK HANDLING
                 galleryItem.addEventListener('click', () => openLightbox(index));
                 
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(overlay);
                 galleryContainer.appendChild(galleryItem);
             });
             
-            // Hide loading and show gallery
-            loadingElement.style.display = 'none';
+            // ✅ INSTANT SHOW - No loading delays
+            if (loadingElement) {
+                loadingElement.style.display = 'none';
+            }
             galleryContainer.classList.add('loaded');
             
-            // Initialize Flickr Justified Gallery
+            // ✅ FAST GALLERY INITIALIZATION
             fjGallery(document.querySelectorAll('.fj-gallery'), {
                 itemSelector: '.fj-gallery-item',
-                gutter: 15,
-                rowHeight: 280,
+                gutter: isMobile ? 10 : 15,
+                rowHeight: isMobile ? 200 : 280,
                 rowHeightTolerance: 0.25,
                 maxRowsCount: Number.POSITIVE_INFINITY,
                 lastRow: 'left',

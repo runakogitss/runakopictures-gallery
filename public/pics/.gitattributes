@@ -1,0 +1,10 @@
+*.jpg filter=lfs diff=lfs merge=lfs -text
+*.JPG filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.PNG filter=lfs diff=lfs merge=lfs -text
+japan[[:space:]]trip/** filter=lfs diff=lfs merge=lfs -text
+kota[[:space:]]lama/** filter=lfs diff=lfs merge=lfs -text
+school[[:space:]]life/** filter=lfs diff=lfs merge=lfs -text
+studiocology/** filter=lfs diff=lfs merge=lfs -text
+profile/** filter=lfs diff=lfs merge=lfs -text
+logo/** filter=lfs diff=lfs merge=lfs -text
